@@ -1,7 +1,6 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 module.exports = {
-	devtool: 'inline-source-map',
 	entry: './src/index.js',
 	output: {
 		path: __dirname + '/build',
@@ -12,9 +11,9 @@ module.exports = {
 		contentBase: './build',
 	},
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: path.resolve('./index.html'),
-		}),
+		new CopyWebpackPlugin([{
+			from: './*.html'
+		}]),
 	],
 	module: {
 		rules: [{
@@ -34,4 +33,10 @@ module.exports = {
 		},
 		]
 	},
+	// resolve: {
+	// 	alias: {
+	// 		'react': 'preact-compat',
+	// 		'react-dom': 'preact-compat',
+	// 	}
+	// }
 };
