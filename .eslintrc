@@ -9,5 +9,11 @@
 		"react": {
 			"version": "detect"
 		}
+	},
+	"rules": {
+		"indent": [
+			"warn",
+			"tab"
+		]
 	}
 }
